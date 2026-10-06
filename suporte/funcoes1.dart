@@ -10,7 +10,7 @@ void exibirMsgPosicional(String msg) {
 }
 
 void exibirMsgNomeado({required String msg}){
-  print('Msg: $msg');
+  print('Msg: $msg');}
 
 bool menorQue5 (int numero){
   return numero < 5;
@@ -19,7 +19,7 @@ bool menorQue5 (int numero){
 bool par (int numero){
   return numero %2 ==0;
 }
-}
+
 
 int soma(int n1,int n2){
   return n1+n2;
