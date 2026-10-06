@@ -25,7 +25,32 @@ class Home2 extends StatelessWidget {
             ],
           )
         ),
+        Row(
+          children: [
+            Card(
+              child: SizedBox(
+                height: 120,
+                width: 120,
+                height:15,
+                
+              ),
+            ),
+          ],
+          children: [
+            SizedBox()
+            Card(
+              child: Column(
+                children: [Icon(Icons.book),
+                Text('Aulas'),
+                Text('12'),
+                ],
+              ),
+            ),
+          ],
+          
+        ),  
       ),
     );
+  
   }
 }
