@@ -1,3 +1,4 @@
+import 'package:aula01/domain/conversa.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -7,10 +8,18 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(title: Text('olá') ),
-      body: Container(
-        color: const Color.fromARGB(255, 76, 66, 156), 
-      ),
-      floatingActionButton: OutlinedButton(onPressed:(){}, child: Icon(Icons.add)),
+      body : Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(conversa.hora),
+          conversa.naoLidas > 0,  
+          Badge(
+            label: Text(
+              '${conversa.naoLidas}'
+              )
+              )
+        ]
+      )
     );
   }
 }

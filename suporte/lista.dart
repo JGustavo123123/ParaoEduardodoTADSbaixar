@@ -1,20 +1,17 @@
-void main(List<String> args){
-  //criando uma lista
-  List nomes = ['Zé', 'Maria', 'Pedro', 0];
+// Caminho: C:\Users\Aluno\Documents\pdm\aula01\lib\lista.dart
+import 'package:flutter/material.dart';
 
-  //adiciona um novo elemento na lista
-  nomes.add('Zuca');
+class ChatListPage extends StatelessWidget {
+  // Correção 1: Uso de parênteses para os parâmetros do construtor
+  const ChatListPage({super.key});
 
-  //para saber a qtd de elemntos na lista
-  nomes.length;
-  
-  //para saber se a lista está vazia
-  nomes.isEmpty;
-  
-  //para saber se a lisata nao esta vazia
-  nomes.isNotEmpty;
-  //criando listas tipadas
-  List<int> idades = [10, 20, 15];
-
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // Correção 2: AppBar é com letra maiúscula e Text precisa ser instanciado com uma string
+      appBar: AppBar(title: const Text('Lista de Conversas')),
+      // Adicionando um corpo (body) básico para a tela não ficar toda branca
+      body: const Center(child: Text('Nenhuma conversa no momento.')),
+    ); // Correção 3: Faltava fechar o return adequadamente
+  }
 }
-
