@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ConversaListPage extends StatelessWidget {
-  final ConversaRepository repo = ConversaRepository();
-  ConversaListPage({super.key});
+  const ConversaListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +19,13 @@ class ConversaListPage extends StatelessWidget {
         builder: (context, state) {
           if (state is ConversaListSucess) {
             return  ListView.builder(
-        itemCount: repo.conversas.length,
+        itemCount: state.conversas.length,
         itemBuilder: (BuildContext context, int i) {
-          Conversa conversa = repo.conversas[i];
+          Conversa conversa = state.conversas[i];
           return ListTile(
+            onTap:() {
+              context.read<ConversaListBloc>().add(ConversaListDuplicaConversa(conversa: conversa) );
+            },
             title: Text(conversa.contato),
             subtitle: Text(conversa.ultimaMsg),
             leading: CircleAvatar(
@@ -34,10 +36,8 @@ class ConversaListPage extends StatelessWidget {
             trailing: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(conversa.hora),
-                conversa.naoLidas > 0
-                    ? Badge(label: Text('${conversa.naoLidas}'))
-                    : SizedBox(),
+               Center(
+                child:Text('Falhou') ,)
               ],
             ),
           );
@@ -49,6 +49,14 @@ class ConversaListPage extends StatelessWidget {
           if (state is ConversaListFailure) {
 
           }
+         return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: CircularProgressIndicator(),
+            )
+          ],
+         );
 
           return CircularProgressIndicator();
         },

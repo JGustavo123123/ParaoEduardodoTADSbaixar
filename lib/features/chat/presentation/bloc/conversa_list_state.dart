@@ -14,6 +14,7 @@ class ConversaListSucess extends ConversaListState{
 
 }
 
+
 class ConversaListFailure extends ConversaListState{
 
   final String msg;
